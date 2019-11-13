@@ -30,7 +30,7 @@ public class JustInTimeServiceResolver implements JustInTimeInjectionResolver {
 			final Class<?> requiredClass = (Class<?>) requiredType;
 
 			// IMPORTANT: check the package name, so we don't accidentally preempt other framework JIT resolvers
-			if (requiredClass.getName().startsWith("com.dev10")) {
+			if (requiredClass.getName().startsWith("com.api")) {
 				final List<ActiveDescriptor<?>> descriptors = ServiceLocatorUtilities.addClasses(serviceLocator, requiredClass);
 
 				return !descriptors.isEmpty();
