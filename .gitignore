@@ -1,0 +1,35 @@
+# Eclipse
+.classpath
+.project
+.settings/
+/Servers/
+/src/Servers/
+RemoteSystemsTempFiles/
+.metadata/
+.factorypath
+build/
+bin/
+classes/
+.recommenders/
+.apt_generated/
+MANIFEST.MF
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+.m2
+log/
+target/
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# Project
+*.log
