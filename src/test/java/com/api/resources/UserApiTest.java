@@ -2,9 +2,7 @@ package com.api.resources;
 
 import com.api.ApiApplication;
 import com.api.business.User;
-import org.glassfish.jersey.test.DeploymentContext;
 import org.glassfish.jersey.test.JerseyTest;
-import org.glassfish.jersey.test.ServletDeploymentContext;
 import org.glassfish.jersey.test.TestProperties;
 import org.junit.Test;
 import utils.mocker.MockAuthorizationJWT;
@@ -22,13 +20,6 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class UserApiTest extends JerseyTest {
 
 	@Override
-	protected DeploymentContext configureDeployment() {
-		return ServletDeploymentContext.builder(ApiApplication.class)
-			.contextPath("")
-			.build();
-	}
-
-	@Override
 	protected Application configure() {
 		enable(TestProperties.LOG_TRAFFIC);
 		enable(TestProperties.DUMP_ENTITY);
@@ -38,7 +29,7 @@ public class UserApiTest extends JerseyTest {
 
 	@Test
 	public void whoAmI() {
-		final Response response = target("user/who-am-i")
+		final Response response = target("users/who-am-i")
 			.request(MediaType.APPLICATION_JSON)
 			.header(HttpHeaders.AUTHORIZATION, MockAuthorizationJWT.mockAuthorizationJWT("m4nu56", "dev10"))
 			.get();
@@ -59,7 +50,7 @@ public class UserApiTest extends JerseyTest {
 
 	@Test
 	public void getList() {
-		final Response response = target("user")
+		final Response response = target("users")
 			.request(MediaType.APPLICATION_JSON)
 			.header(HttpHeaders.AUTHORIZATION, MockAuthorizationJWT.mockAuthorizationJWT("m4nu56", "dev10"))
 			.get();

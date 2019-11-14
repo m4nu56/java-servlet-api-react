@@ -11,6 +11,7 @@ public enum PlatformConstants {
 	public static final String ISSUER = "ISSUER";
 	public static final String AUDIENCE = "AUDIENCE";
 	private JWTConfig jwtConfig = new JWTConfig(SignatureAlgorithm.HS256, "YcUVnqnixeZlFttHXjbxc4CDd7QtQFgTybn/iicLW6I=");
+	public static final String CLASS_PACKAGE = "com.api";
 
 	public JWTConfig getJwtConfig() {
 		return jwtConfig;

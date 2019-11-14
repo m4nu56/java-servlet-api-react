@@ -11,6 +11,8 @@ import javax.inject.Inject;
 import java.lang.reflect.Type;
 import java.util.List;
 
+import static com.api.utils.PlatformConstants.CLASS_PACKAGE;
+
 /**
  * Mimic GUICE's ability to satisfy injection points automatically,
  * without needing to explicitly bind every class, and without needing
@@ -30,7 +32,7 @@ public class JustInTimeServiceResolver implements JustInTimeInjectionResolver {
 			final Class<?> requiredClass = (Class<?>) requiredType;
 
 			// IMPORTANT: check the package name, so we don't accidentally preempt other framework JIT resolvers
-			if (requiredClass.getName().startsWith("com.api")) {
+			if (requiredClass.getName().startsWith(CLASS_PACKAGE)) {
 				final List<ActiveDescriptor<?>> descriptors = ServiceLocatorUtilities.addClasses(serviceLocator, requiredClass);
 
 				return !descriptors.isEmpty();
