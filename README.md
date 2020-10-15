@@ -93,7 +93,7 @@ In `ContainerResponse.java`:
 
 We can inject the `HttpServletRequest` using the `@Context` annotation in our Jersey API endpoint.
 
-As long as the API is queried using the correct Cookie `JSESSIONID` we can access the session that was set by the Java Servlet App with a simple `request.getSession()` 
+As long as the API is requested using the correct Cookie `JSESSIONID` we can access the session that was set by the Java Servlet App with a simple `request.getSession()` 
 
 ```java
 @Path("users")
@@ -122,3 +122,23 @@ public class UserApi {
 	}
 }
 ```
+
+## The React SPA
+
+The module is making a request to the API using the Cookie available for the app domain in the browser.
+
+```js
+const request = new window.Request('http://localhost:8080/webapp/api/users/session/who-am-i', {
+    method: 'GET',
+    credentials: 'include',  // Important so that Cookies are sent with the fetch request
+    headers: new window.Headers({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    }),
+})
+return window.fetch(request)
+  .then(response => checkStatus(response))
+  .catch(error => window.Promise.reject(error))
+```
+
