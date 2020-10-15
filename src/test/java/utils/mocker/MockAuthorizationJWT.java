@@ -2,12 +2,18 @@ package utils.mocker;
 
 import com.api.utils.JWTUtils;
 import com.api.utils.PlatformConstants;
+import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 
 import static com.api.utils.JWTUtils.AUTHENTICATION_SCHEME;
 
 public class MockAuthorizationJWT {
+
+	@Test
+	void printToken() {
+		System.out.println(mockAuthorizationJWT());
+	}
 
 	public static String mockAuthorizationJWT() {
 		return mockAuthorizationJWT("myLogin", "myAccount", 1000L * 1000);

@@ -3,6 +3,7 @@ package com.api;
 import com.api.injection.ApplicationBinder;
 import com.api.resources.UserApi;
 import com.api.security.PreMatchingCurrentUserFilter;
+import com.api.utils.ContainerResponse;
 import com.api.utils.JacksonMapper;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -19,7 +20,8 @@ public class ApiApplication extends ResourceConfig {
         register(JacksonMapper.class);  // json serialize/deserialize
 
         // Providers
-        register(new ApplicationBinder()); // for H2K injection dependency
+		register(ContainerResponse.class); // Access-Control-Allow-Origin
+		register(new ApplicationBinder()); // for H2K injection dependency
         register(new PreMatchingCurrentUserFilter());
 
         // Resources

@@ -8,9 +8,6 @@ public class UserSvc {
 	@Inject
 	private UserDao userDao;
 
-	public UserSvc() {
-	}
-
 	public List<User> getList() {
 		return userDao.getList();
 	}

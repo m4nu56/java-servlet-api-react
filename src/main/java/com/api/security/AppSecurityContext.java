@@ -8,9 +8,9 @@ import java.util.Set;
 
 public class AppSecurityContext implements SecurityContext {
 
-    private Set<String> roles;
-    private User user;
-    private boolean isSecure;
+    private final Set<String> roles;
+    private final User user;
+    private final boolean isSecure;
 
     AppSecurityContext(Set<String> roles, final User user, boolean isSecure) {
         this.roles = roles;
