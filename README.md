@@ -6,8 +6,6 @@ The goal of this demo is to demonstrate how to build such an app and how to use 
 
 All of that in order to allow you to progressively migrate your historic Java Servlet App to a more modern stack.  
 
-You can find the react demo project that runs with this App here: https://github.com/m4nu56/migrate-java-app-react
-
 ![Migrate](docs/migrate.gif)
 
 ## Build the Java Servlet App
