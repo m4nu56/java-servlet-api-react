@@ -5,7 +5,7 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.dev10</groupId>
+    <groupId>com.m4nu56</groupId>
     <artifactId>jersey-hk2-api</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
