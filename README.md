@@ -81,17 +81,17 @@ To do so it's important to specify the URL of your React app in the CORS policy 
 
 In `ContainerResponse.java`:
 ```java
-"Access-Control-Allow-Origin", "http://localhost:3000"
+"Access-Control-Allow-Origin", "http://localhost:3000" // The path where you will be running the REACT SPA
 "Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"
 "Access-Control-Expose-Headers", "Location"
-"Access-Control-Allow-Credentials", true
+"Access-Control-Allow-Credentials", true // Important to allow the client to send Cookie information with its requests
 ```
 
 ## Access the HttpSession in the API endpoint
 
 We can inject the `HttpServletRequest` using the `@Context` annotation in our Jersey API endpoint.
 
-As long as the API is requested using the correct Cookie `JSESSIONID` we can access the session that was set by the Java Servlet App with a simple `request.getSession()` 
+As long as the API is being requested using the correct Cookie `JSESSIONID` we can access the session that was set by the Java Servlet App with a simple `request.getSession()` 
 
 ```java
 @Path("users")
